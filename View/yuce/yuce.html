@@ -1,0 +1,91 @@
+﻿<!doctype html>
+<html lang="en">
+ <head>
+ <link rel="stylesheet" href="wuran.css">
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <style type="text/css">
+	body{background-image: url(images/nybj.png);background-size:100% 100%;font-weight:bold;font-family:苹方;overflow: hidden;}
+	.main{width:1024px;height:768px;position:relative;margin:auto;}
+	div{border:0px solid white;margin:1px;}
+	.layer{position:relative;width:100%;}
+	#layer01{}
+	#layer01 img{text-align: center;display: block;height: 35px;padding-top: 35px;margin: auto;}
+	#layer02 > div{height:100%;float:left;position:relative;}
+	.layer02-data{position: absolute;width: auto;height: 100px;color: white;top: 45px;left: 65px;}
+	.layer03-panel{height:100%;position:relative;float:left;}
+	.layer03-left-label{position:absolute;}
+	#layer03_left_label01{top:10px;left:10px;color:white;height:20px;width:200px;font-weight: bold;}
+	#layer03_left_label02{right:10px;top:10px;color:#036769;height:20px;width:200px;}
+	.layer03-left-chart{position:relative;float:left;height:100%;}
+	#layer03_right_label{position:absolute;top:10px;left:10px;color:white;height:20px;width:100px;}
+	.layer03-right-chart{position:relative;float:left;height:100%;width:32%;}
+	.layer03-right-chart-label{color: white;text-align: center;position: absolute;bottom: 60px;width: 100%;}
+	.layer04-panel{position:relative;float:left;height:100%;width:48%;}
+	.layer04-panel-label{width:100%;height:15%;color:white;padding-top:5px;}
+	.layer04-panel-chart{width:100%;height:85%;}
+  </style>
+  <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+  <script src="https://cdn.bootcss.com/echarts/4.1.0.rc2/echarts.min.js"></script>
+  <script src="monitor.js"></script>
+  <script type="text/javascript">
+	$(function(){
+		renderLegend();
+		//饼状图
+		renderChartBar01();
+		//30天日均线流量趋势
+		renderLayer04Left();
+		//集群性能
+		renderLayer04Right();
+	});
+  </script>
+  <title>污染物指数预测</title>
+ </head>
+ 
+  <div class="head">
+  <h1>污染物指数预测</h1>
+  <div class="navigation">
+<li><a href="../fenxi/fenxi.html">全国雾霾指数分析</a></li>
+<li><a href="../index.html">全国雾霾指数展示</a></li>
+<li><a href="../yuce/yuce.html">污染物指数预测</a></li>
+  </div>
+</div>
+ <body>
+	 <div class="main">
+
+		<div id="layer02" class="layer" style="height:10%;"></div>
+		<div id="layer03" class="layer" style="height:40%;">
+			<!-- 折线图-->
+			<div id="layer04_right" class="layer04-panel" style="width:100%;">
+				<div id="layer04_right_label" class="layer04-panel-label" style="width:100%;" align="center">
+					<span>雾霾指数预测/</span><span style="color:#00A09A;">小时</span>
+				</div>
+				<div id="layer04_right_chart" class="layer04-panel-chart"></div>
+			</div>
+		</div>
+		<div id="layer04" class="layer" style="height:30%;">
+			<div id="layer04_left" class="layer04-panel" style="width: 48%">
+				<div id="layer04_left_label" class="layer04-panel-label">北京市时均污染指数趋势</div>
+				<div id="layer04_left_chart" class="layer04-panel-chart"></div>
+			</div>
+
+			<!-- 北京空气质量饼状图-->
+			<div id="layer03_left"  class="layer03-panel" style="width: 50%;" >
+				<div id="layer03_left_label01" class="layer03-left-label" style="width:100%; height:10%" >
+					北京近一个月内的空气质量情况
+				</div>
+
+				<div id="layer03_left_01" class="layer03-left-chart" style="width:16%;height:90%">
+					<canvas width="100" height="200" style="margin:30px 0 0 20px;"></canvas>
+				</div>
+
+				<div id="layer03_left_02" class="layer03-left-chart" style="width:80%;"></div>
+			</div>
+
+		</div>
+	</div>
+ </body>
+</html>
